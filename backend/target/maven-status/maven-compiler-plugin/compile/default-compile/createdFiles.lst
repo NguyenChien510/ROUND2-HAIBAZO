@@ -1,0 +1,17 @@
+com\haibazo\bookreview\controllers\BookController.class
+com\haibazo\bookreview\repositories\AuthorRepository.class
+com\haibazo\bookreview\controllers\AuthorController.class
+com\haibazo\bookreview\config\CorsConfig.class
+com\haibazo\bookreview\controllers\BookController$BookResponse.class
+com\haibazo\bookreview\controllers\ReviewController$ReviewRequest.class
+com\haibazo\bookreview\controllers\BookController$BookRequest.class
+com\haibazo\bookreview\controllers\ReviewController.class
+com\haibazo\bookreview\repositories\ReviewRepository.class
+com\haibazo\bookreview\BookReviewApplication.class
+com\haibazo\bookreview\entities\Author.class
+com\haibazo\bookreview\controllers\ReviewController$ReviewResponse.class
+com\haibazo\bookreview\repositories\BookRepository.class
+com\haibazo\bookreview\config\CorsConfig$1.class
+com\haibazo\bookreview\entities\Book.class
+com\haibazo\bookreview\controllers\AuthorController$AuthorResponse.class
+com\haibazo\bookreview\entities\Review.class
