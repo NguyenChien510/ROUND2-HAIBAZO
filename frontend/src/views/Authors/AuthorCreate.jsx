@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import api from '../../api/axios';
 import { useNavigate } from 'react-router-dom';
 
 const AuthorCreate = () => {
@@ -15,7 +15,7 @@ const AuthorCreate = () => {
     }
 
     try {
-      await axios.post('http://localhost:8080/api/authors', { name });
+      await api.post('/authors', { name });
       navigate('/authors');
     } catch (err) {
       setError('Error creating author. Please try again.');

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../../api/axios';
 import Modal from '../../components/Modal';
 
 const AuthorList = () => {
@@ -19,7 +19,7 @@ const AuthorList = () => {
 
   const fetchAuthors = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/api/authors');
+      const response = await api.get('/authors');
       setAuthors(response.data);
     } catch (error) {
       console.error('Error fetching authors:', error);
@@ -46,7 +46,7 @@ const AuthorList = () => {
       return;
     }
     try {
-      await axios.put(`http://localhost:8080/api/authors/${selectedAuthor.id}`, { name: editName });
+      await api.put(`/authors/${selectedAuthor.id}`, { name: editName });
       setIsEditOpen(false);
       fetchAuthors();
     } catch (err) {
@@ -56,7 +56,7 @@ const AuthorList = () => {
 
   const handleDeleteConfirm = async () => {
     try {
-      await axios.delete(`http://localhost:8080/api/authors/${selectedAuthor.id}`);
+      await api.delete(`/authors/${selectedAuthor.id}`);
       setIsDeleteOpen(false);
       fetchAuthors();
     } catch (error) {

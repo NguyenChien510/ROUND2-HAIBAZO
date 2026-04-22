@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../../api/axios';
 import Modal from '../../components/Modal';
 
 const BookList = () => {
@@ -22,8 +22,8 @@ const BookList = () => {
   const fetchData = async () => {
     try {
       const [booksRes, authorsRes] = await Promise.all([
-        axios.get('http://localhost:8080/api/books'),
-        axios.get('http://localhost:8080/api/authors')
+        api.get('/books'),
+        api.get('/authors')
       ]);
       setBooks(booksRes.data);
       setAuthors(authorsRes.data);
@@ -58,7 +58,7 @@ const BookList = () => {
     }
 
     try {
-      await axios.put(`http://localhost:8080/api/books/${selectedBook.id}`, { 
+      await api.put(`/books/${selectedBook.id}`, { 
         title: editTitle,
         authorId: parseInt(editAuthorId)
       });
@@ -71,7 +71,7 @@ const BookList = () => {
 
   const handleDeleteConfirm = async () => {
     try {
-      await axios.delete(`http://localhost:8080/api/books/${selectedBook.id}`);
+      await api.delete(`/books/${selectedBook.id}`);
       setIsDeleteOpen(false);
       fetchData();
     } catch (error) {

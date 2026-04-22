@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../../api/axios';
 import Modal from '../../components/Modal';
 
 const ReviewList = () => {
@@ -16,7 +16,7 @@ const ReviewList = () => {
 
   const fetchReviews = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/api/reviews');
+      const response = await api.get('/reviews');
       setReviews(response.data);
     } catch (error) {
       console.error('Error fetching reviews:', error);
@@ -32,7 +32,7 @@ const ReviewList = () => {
 
   const handleDeleteConfirm = async () => {
     try {
-      await axios.delete(`http://localhost:8080/api/reviews/${selectedReview.id}`);
+      await api.delete(`/reviews/${selectedReview.id}`);
       setIsDeleteOpen(false);
       fetchReviews();
     } catch (error) {

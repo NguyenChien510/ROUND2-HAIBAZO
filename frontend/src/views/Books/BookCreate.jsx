@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../../api/axios';
 import { useNavigate } from 'react-router-dom';
 
 const BookCreate = () => {
@@ -12,7 +12,7 @@ const BookCreate = () => {
   useEffect(() => {
     const fetchAuthors = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/api/authors');
+        const response = await api.get('/authors');
         setAuthors(response.data);
       } catch (err) {
         console.error('Error fetching authors:', err);
@@ -33,7 +33,7 @@ const BookCreate = () => {
     }
 
     try {
-      await axios.post('http://localhost:8080/api/books', { 
+      await api.post('/books', { 
         title, 
         authorId: parseInt(authorId) 
       });
